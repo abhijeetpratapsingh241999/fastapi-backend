@@ -9,6 +9,10 @@ app = FastAPI(title="4kscaler API", description="4K/8K Video Upscaling Service")
 TEMP_DIR = "temp"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to 4kscaler API - 4K/8K Video Upscaling Service"}
+
 @app.get("/healthz")
 def health_check():
     return {"status": "healthy"}
